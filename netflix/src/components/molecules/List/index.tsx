@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import Title from "~/components/atoms/Title"
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/md"
 import Button from  "~/components/atoms/Button"
+import { Category, CategoryList } from "./styles"
 
 interface ListInterface {
   moviesImg: any[]
   title: string
 }
 
-function List({ moviesImg, title }: ListInterface) {
+const List = ({ moviesImg, title }: ListInterface) => {
   const navigate = useNavigate()
   const listaRef = useRef<HTMLDivElement>(null)
 
@@ -25,10 +26,9 @@ function List({ moviesImg, title }: ListInterface) {
   }
 
   return (
-    <div className='categoria'>
+    <Category>
       <Title>{title}</Title>
-      <div
-        className='categoria-lista'
+      <CategoryList
         ref={listaRef}
       >
         <Button
@@ -52,8 +52,8 @@ function List({ moviesImg, title }: ListInterface) {
         >
           <MdOutlineArrowForwardIos className='icone' size={35} />
         </Button>
-      </div>
-    </div>
+      </CategoryList>
+    </Category>
   )
 }
 

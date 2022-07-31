@@ -1,46 +1,36 @@
-import React from "react"
-import { useNavigate } from 'react-router-dom'
-import Title from '../../atoms/Title'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Title from "../../atoms/Title";
+import { Container, Info } from "./styles";
 
 interface HighlightMovieInterface {
-  movie: any
+  movie: any;
 }
 
-function HighlightMovie({ movie }: HighlightMovieInterface) {
-  const navigate = useNavigate()
+const HighlightMovie = ({ movie }: HighlightMovieInterface) => {
+  const navigate = useNavigate();
 
-  function sendToMovie(id: number) {
-    navigate('/filme/' + id)
+  const sendToMovie = (id: number) => {
+    navigate("/filme/" + id);
   }
 
   console.log(movie)
 
   return (
-    <div style={{
-      backgroundImage: `url(${movie.backdrop_path})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      height: '94vh',
-    }}>
-      <div style={{
-        background: 'linear-gradient(to top, #111 10%, transparent 90%',
-        height: 'inherit',
-      }}>
-        <div style={{
-          backgroundImage: 'linear-gradient(to right, #111 20%, transparent 80%',
-          height: 'inherit',
-        }}>
-        
-          <Title>{movie.title}</Title>
-          <h2>{movie.overview}</h2>
-          <br />
-          <button
-            onClick={() => sendToMovie(movie.id)}
-          >Assistir</button>
-        </div>
-      </div>
-    </div>
+    <Container
+      style={{
+        backgroundImage: `url(${movie.backdrop_path})`,
+      }}
+    >
+      <Info>
+        <Title>{movie.title}</Title>
+        <h2>{movie.overview}</h2>
+        <br />
+        <button onClick={() => sendToMovie(movie.id)}>Assistir</button>
+        <button className="more-info" onClick={() => sendToMovie(movie.id)}>Mais informações</button>
+      </Info>
+    </Container>
   )
 }
 
-export default HighlightMovie
+export default HighlightMovie;

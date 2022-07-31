@@ -1,8 +1,7 @@
 import Routes from '~/routes';
-import GlobalStyle from './config/global.style';
-import './App.css'
+import GlobalStyle from '~/config/global.style';
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes />
