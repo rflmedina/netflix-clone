@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import cover from "~/assets/cover.jpg";
+import { colors } from "~/config/variables";
+
+const {red, darkRed, grey, white} = colors
 
 export const Cover = styled.div`
   display: flex;
@@ -7,7 +10,7 @@ export const Cover = styled.div`
   width: 100%;
   background: url(${cover});
   background-size: cover;
-  color: white;
+  color: ${white};
 
   section {
     width: 100%;
@@ -32,13 +35,13 @@ export const Header = styled.div`
   margin: 0px 100px;
 
   button {
-    background-color: #e50914;
+    background-color: ${darkRed};
     font-size: 1rem;
     font-weight: 400;
     line-height: normal;
     padding: 7px 17px;
     border-radius: 3px;
-    color: #fff;
+    color: ${white};
     margin-top: 0.5rem;
 
     & {
@@ -81,10 +84,10 @@ export const Description = styled.div`
     padding: 0 30px;
     border: none;
     font-size: 30px;
-    background-color: #e50914;
-    background-image: linear-gradient(180deg,#e50914,#db0510);
+    background-color: ${darkRed};
+    background-image: linear-gradient(180deg, darkRed, red);
     box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
-    color: #fff;
+    color: ${white};
 
     & {
       cursor: pointer;
@@ -100,7 +103,7 @@ export const Description = styled.div`
     height: 60px;
     min-width: 500px;
     outline: none;
-    border: 1px solid #8c8c8c;
+    border: 1px solid ${grey};
     border-radius: 2px;
     color: #000;
     font-size: 16px;
@@ -113,7 +116,7 @@ export const Description = styled.div`
       left: 1rem;
       top: 0rem;
       padding: 0px 10px;
-      color: #8c8c8c;
+      color: ${grey};
       cursor: text;
       transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
     }

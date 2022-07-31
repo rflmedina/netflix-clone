@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-// .header-fixed{
-//     display: flex;
-//     position: fixed;
-//     top: 0;
-//     width: 100%;
-//     padding: 2.5rem;
-//     z-index: 999;
-//   }
-
 export const Container = styled.div`
   display: flex;
   position: fixed;

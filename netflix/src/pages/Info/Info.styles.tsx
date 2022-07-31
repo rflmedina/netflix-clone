@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { colors } from "~/config/variables";
+
+const { white } = colors
 
 export const Container = styled.div`
   height: 99vh;
@@ -12,9 +15,9 @@ export const Details = styled.div`
   height: 100vh;
   padding: 3rem;
   margin-top: 2rem;
-  color: white;
+  color: ${white};
   h3 {
-    color: #fff;
+    color: ${white};
     font-size: 2rem;
     font-weight: 400;
     line-height: normal;

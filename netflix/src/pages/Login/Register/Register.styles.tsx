@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { colors } from '~/config/variables'
+
+const {dark, white, darkRed, grey, softGrey } = colors
 
 export const Box = styled.div`
   padding: 60px;
@@ -16,8 +19,8 @@ export const Box = styled.div`
     height: 50px;
     width: 100%;
     margin-bottom: 1rem;
-    color: #fff;
-    background-color: #333;
+    color: ${white};
+    background-color: ${dark};
     border: none;
     border-radius: 5px;
     padding-left: 15px;
@@ -29,8 +32,8 @@ export const Box = styled.div`
     height: 50px;
     width: 100%;
     margin-top: 1rem;
-    color: #fff;
-    background-color: #e50914;
+    color: ${white};
+    background-color: ${darkRed};
     border-radius: 3px;
     font-weight: bold;
     font-size: 16px;
@@ -41,7 +44,7 @@ export const Box = styled.div`
    label {
       position: absolute;
       padding: 0px 10px;
-      color: #8c8c8c;
+      color: ${grey};
       cursor: text;
       transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
     }
@@ -49,7 +52,7 @@ export const Box = styled.div`
 
 export const Support = styled.div`
      display: flex;
-    color: #b3b3b3;
+    color: ${softGrey};
     justify-content: space-between;
     font-size: 12px;
     margin-bottom: 5px;
@@ -63,6 +66,6 @@ export const Support = styled.div`
 
     a {
         text-decoration: none;
-        color: #b3b3b3
+        color: ${softGrey}
     }
 `

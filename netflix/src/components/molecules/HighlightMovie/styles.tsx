@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { colors } from "~/config/variables";
+
+const { white } = colors
 
 export const Container = styled.div`
   background-repeat: no-repeat;
@@ -15,12 +18,12 @@ export const Info = styled.div`
   width: 500px;
 
   h1 {
-    color: #fff;
+    color: ${white};
     font-size: 4rem;
   }
 
   h2 {
-    color: #fff;
+    color: ${white};
     font-size: 1.2vw;
     font-weight: 400;
     line-height: normal;
@@ -42,7 +45,7 @@ export const Info = styled.div`
     font-size: 1rem;
     margin-left: 10px;
     background-color: rgba(109,109,110,0.7);
-    color: white;
+    color: ${white};
   }
 
   svg {
@@ -50,7 +53,7 @@ export const Info = styled.div`
   }
 
   .info {
-    color: white;
+    color: ${white};
     font-weight: bold;
   }
 `;
