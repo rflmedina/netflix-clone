@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { Row, Col, Container } from "react-grid-system";
 import { useParams } from "react-router-dom";
 import * as ApiTmbService from "~/services";
 
 import VideoFrame from "~/components/atoms/VideoFrame";
-import { Container } from "./Info.styles";
-import Title from "~/components/atoms/Title";
+import { Container as Cont, Details } from "./Info.styles";
 import { Helmet } from "react-helmet";
 import List from "~/components/molecules/List";
 
 const Info = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<any>();
-  const [relatedTitles, setRelatedTitles] = useState<any>()
+  const [relatedTitles, setRelatedTitles] = useState<any>();
   const [videoKey, setVideoKey] = useState<string>();
 
   const imgUrl = "https://image.tmdb.org/t/p/w300";
 
-  const originalImgUrl = 'https://image.tmdb.org/t/p/original'
+  const originalImgUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
     if (!id || movie) return;
@@ -30,63 +30,76 @@ const Info = () => {
       video && setVideoKey(video.key);
     });
 
-
     ApiTmbService.getSimilarTitles(+id).then((response) => {
-      const movieImgs = response.results.map((result: any) => {
+      const related = response.results.map((result: any) => {
         return {
           ...result,
           backdrop_path: originalImgUrl + result.backdrop_path,
           poster_path: imgUrl + result.poster_path,
-        }
-      })
-      setRelatedTitles(movieImgs)
-    })
+        };
+      });
+      setRelatedTitles(related);
+    });
   }, [id, movie]);
 
-  function getDateYear(releaseDate: string) {
+  const getDateYear = (releaseDate: string) => {
     const newDate = new Date(releaseDate);
     return newDate.getFullYear();
-  }
+  };
 
   return (
     <>
       <Helmet title="Netflix" />
-      <Container>
-        {videoKey ? (
-          <VideoFrame videoKey={videoKey + ""} />
-        ) : (
-          <>
-            <div className="movie-titulo">
-              <h1>{movie && movie.title}</h1>
-              <h1
-                style={{
-                  fontSize: "16px",
-                  marginTop: "10px",
-                  color: "#e50914",
-                }}
-              >
-                {movie && getDateYear(movie.release_date)}
-              </h1>
-            </div>
-            <br />
-            <p>{movie && movie.overview}</p>
+      <Cont>
+        {videoKey && <VideoFrame videoKey={videoKey + ""} />}
 
-            {movie && movie.backdrop_path && (
-              <img
-                style={{
-                  width: "20rem",
-                  marginTop: "20px",
-                  marginLeft: "30%",
-                }}
-                src={imgUrl + movie.backdrop_path}
-                alt=""
-              />
-            )}
+        {movie && (
+          <>
+              <Details>
+                {movie.poster_path && (
+                      <img src={imgUrl + movie.poster_path} alt="" />
+                    )}
+                  
+                <Container>
+                <Row>
+                  <Col>
+                    <h3>
+                      {movie.title} ({getDateYear(movie.release_date!)})
+                    </h3>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col>
+                    <p>Avaliação média</p>
+                    {movie.vote_average}
+                  </Col>
+
+                  <Col>
+                    <p>Total de votos</p>
+                    {movie.vote_count}
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col>
+                    <h4>Sinopse</h4>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col>{movie.overview}</Col>
+                </Row>
+
+                </Container>
+              </Details>
           </>
         )}
 
-        {relatedTitles && <List title='Títulos Semelhantes' moviesImg={relatedTitles} />}
-      </Container>
+        {relatedTitles && (
+          <List title="Títulos Semelhantes" moviesImg={relatedTitles} />
+        )}
+      </Cont>
     </>
   );
 };
