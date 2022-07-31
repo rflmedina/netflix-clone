@@ -28,8 +28,14 @@ async function getMovieDetails(movieId: number) {
       .then((response) => response.data)
 }
 
+async function getSimilarTitles(movieId: number) {
+  return await api.get(`/movie/${movieId}/similar`)
+  .then((response) => response.data)
+}
+
 export {
   getPolular,
   getTopRated,
-  getMovieDetails
+  getMovieDetails,
+  getSimilarTitles,
 }

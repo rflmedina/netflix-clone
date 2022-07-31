@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
-  height: 85vh;
+  height: 95vh;
 `;
 
 export const Info = styled.div`

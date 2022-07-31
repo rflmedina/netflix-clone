@@ -14,7 +14,7 @@ const HighlightMovie = ({ movie }: HighlightMovieInterface) => {
   const navigate = useNavigate();
 
   const sendToMovie = (id: number) => {
-    navigate("/filme/" + id);
+    navigate("/browse/" + id);
   }
 
   console.log(movie)

@@ -22,7 +22,7 @@ const List = ({ moviesImg, title }: ListInterface) => {
   }
 
   function sendToMovie(id: number) {
-    navigate('/filme/' + id)
+    navigate('/browse/' + id)
   }
 
   return (

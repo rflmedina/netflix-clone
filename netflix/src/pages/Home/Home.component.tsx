@@ -16,7 +16,7 @@ function Home() {
   const originalImgUrl = 'https://image.tmdb.org/t/p/original'
 
   useEffect(() => {
-    function searchPopular() {
+    const searchPopular = () => {
       ApiTmbService.getPolular()
         .then((response) => {
           const movieImgs = response.results.map((result: any) => {
@@ -30,7 +30,7 @@ function Home() {
         })
     }
 
-    function searchTopRated() {
+    const searchTopRated = () => {
       ApiTmbService.getTopRated()
         .then((response: any) => {
           const movieImgs = response.results.map((result: any) => {
