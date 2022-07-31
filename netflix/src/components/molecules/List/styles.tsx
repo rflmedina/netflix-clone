@@ -4,7 +4,7 @@ export const Category = styled.div`
   h1 {
     color: #fff;
     margin-left: 1rem;
-    margin-top: 5rem;
+    margin-top: 1.5rem;
     font-size: 1.5rem;
   }
 `;

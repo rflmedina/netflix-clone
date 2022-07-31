@@ -3,6 +3,7 @@ import HighlightMovie from '~/components/molecules/HighlightMovie'
 import List from '~/components/molecules/List'
 import * as ApiTmbService from '~/services/index'
 import Helmet from 'react-helmet'
+import Header from '~/components/molecules/Header'
 
 
 function Home() {
@@ -57,6 +58,7 @@ function Home() {
   }, [popularMovies])
 
   return <>
+  <Header />
     <Helmet title="ínicio - Netflix" />
     {highlightMovie && (<HighlightMovie movie={highlightMovie} />)}
     <List title='Populares' moviesImg={popularMovies} />

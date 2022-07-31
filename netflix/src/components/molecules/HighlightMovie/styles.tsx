@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 85vh;
 `;
 
 export const Info = styled.div`
@@ -32,6 +32,7 @@ export const Info = styled.div`
     width: 9rem;
     border: none;
     font-size: 1rem;
+    border-radius: 4px;
   }
 
   .more-info {
@@ -42,5 +43,14 @@ export const Info = styled.div`
     margin-left: 10px;
     background-color: rgba(109,109,110,0.7);
     color: white;
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+
+  .info {
+    color: white;
+    font-weight: bold;
   }
 `;

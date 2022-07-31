@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Title from "../../atoms/Title";
 import { Container, Info } from "./styles";
 
+import { AiOutlineInfoCircle } from 'react-icons/ai'
+import { FaPlay } from 'react-icons/fa'
+
 interface HighlightMovieInterface {
   movie: any;
 }
@@ -26,8 +29,12 @@ const HighlightMovie = ({ movie }: HighlightMovieInterface) => {
         <Title>{movie.title}</Title>
         <h2>{movie.overview}</h2>
         <br />
-        <button onClick={() => sendToMovie(movie.id)}>Assistir</button>
-        <button className="more-info" onClick={() => sendToMovie(movie.id)}>Mais informações</button>
+        <button onClick={() => sendToMovie(movie.id)}>
+          <FaPlay />
+          Assistir</button>
+        <button className="more-info" onClick={() => sendToMovie(movie.id)}>
+          <AiOutlineInfoCircle className="info"/>
+          Mais informações</button>
       </Info>
     </Container>
   )
