@@ -24,20 +24,20 @@ const Register = () => {
           </Header>
           <Box>
             <Title>Entrar</Title>
-            <input type="text" placeholder="Email ou número de telefone"/>           
+            <input type="text" placeholder="Email ou número de telefone" />
             <input type="password" placeholder="Senha" />
             <button onClick={() => redirectToHome()}>Entrar</button>
 
             <Support>
-            <div>
-                    <span><input type="checkbox"/></span>
-                    <span>Lembre-se de mim</span>
-                </div>
-                <div>
-                    <a href="#">
-                        Precisa de ajuda?
-                    </a>
-                </div>
+              <div>
+                <span><input type="checkbox" /></span>
+                <span>Lembre-se de mim</span>
+              </div>
+              <div>
+                <a href="#">
+                  Precisa de ajuda?
+                </a>
+              </div>
             </Support>
           </Box>
         </section>

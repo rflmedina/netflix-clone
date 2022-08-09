@@ -4,12 +4,14 @@ import List from '~/components/molecules/List'
 import * as ApiTmbService from '~/services/index'
 import Helmet from 'react-helmet'
 import Header from '~/components/molecules/Header'
+import { Loader } from '~/components/atoms/Loader'
 
 
 function Home() {
   const [popularMovies, setPopularMovies] = useState<any[]>([])
   const [topRatedMovies, setTopRatedMovies] = useState<any[]>([])
   const [highlightMovie, setHighlightMovie] = useState<any>()
+  const [loader, setLoader] = useState<boolean>(true)
 
 
   const imgUrl = 'https://image.tmdb.org/t/p/w300'
@@ -54,15 +56,21 @@ function Home() {
     const movie = popularMovies[Math.floor(Math.random() * popularMovies.length)]
 
     setHighlightMovie(movie)
+    setLoader(false)
 
   }, [popularMovies])
 
   return <>
-  <Header />
+  {
+    loader ? <Loader /> : <>
+       <Header />
     <Helmet title="ínicio - Netflix" />
     {highlightMovie && (<HighlightMovie movie={highlightMovie} />)}
     <List title='Populares' moviesImg={popularMovies} />
-    <List title='Top Assistidos' moviesImg={topRatedMovies} />
+    <List title='Top Assistidos' moviesImg={topRatedMovies} /> 
+    </> 
+  }
+   
   </>
 }
 
