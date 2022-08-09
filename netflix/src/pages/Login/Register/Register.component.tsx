@@ -1,6 +1,7 @@
 import { Cover, Header } from "~/pages/Login/Login.styles";
 import Helmet from "react-helmet";
 
+//@ts-ignore
 import logo from "~/assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { Box, Support } from "./Register.styles";
