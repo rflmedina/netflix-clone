@@ -2,6 +2,7 @@ import Title from "~/components/atoms/Title";
 import { Cover, Description, Header } from "~/pages/Login/Login.styles";
 import Helmet from 'react-helmet'
 
+//@ts-ignore
 import logo from "~/assets/logo.png";
 import Button from "~/components/atoms/Button";
 import { Navigate, useNavigate } from "react-router-dom";

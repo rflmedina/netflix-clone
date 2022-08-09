@@ -1,4 +1,5 @@
 import styled from "styled-components";
+//@ts-ignore
 import cover from "~/assets/cover.jpg";
 import { colors } from "~/config/variables";
 
