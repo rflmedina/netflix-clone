@@ -32,8 +32,8 @@ const HighlightMovie = ({ movie }: HighlightMovieInterface) => {
         <button onClick={() => sendToMovie(movie.id)}>
           <FaPlay />
           Assistir</button>
-        <button className="more-info" onClick={() => sendToMovie(movie.id)}>
-          <AiOutlineInfoCircle className="info"/>
+        <button onClick={() => sendToMovie(movie.id)}>
+          <AiOutlineInfoCircle/>
           Mais informações</button>
       </Info>
     </Container>
